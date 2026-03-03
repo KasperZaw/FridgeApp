@@ -12,7 +12,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import NutritionCard from "../nutritionCard/nutritionCard";
 import { Trash2 } from "lucide-react";
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../../backend/Firebases/firebase";
+import { db } from "../../../backend/Firebase/firebase";
 
 type ProductCardProps = {
   thumb_img: string | undefined;

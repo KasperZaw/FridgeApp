@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { savePoroducts } from "../Firebases/products.db";
+import { savePoroducts } from "../Firebase/products.db";
 
 interface UserData {
   name: string;

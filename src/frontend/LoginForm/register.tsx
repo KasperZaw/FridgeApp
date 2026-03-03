@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, TextField, Button, Typography, Paper } from "@mui/material";
-import { registerUser } from "../../backend/Firebases/auth.services";
+import { registerUser } from "../../backend/Firebase/auth.services";
 import { Link } from "react-router-dom";
 const Register = () => {
   const [email, setEmail] = useState("");

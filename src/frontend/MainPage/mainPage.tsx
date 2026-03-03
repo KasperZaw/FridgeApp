@@ -4,11 +4,11 @@ import {
   useFridgeStore,
   type FridgeStorage,
 } from "../../backend/globalState/globalState";
-import { auth } from "../../backend/Firebases/firebase";
+import { auth } from "../../backend/Firebase/firebase";
 import {
   getUserInfo,
   type UserProfile,
-} from "../../backend/Firebases/user.services";
+} from "../../backend/Firebase/user.services";
 import ProductsContainer from "../Components/productsContainer/productsContainer";
 import Navbar from "../Components/navbar/navbar";
 const mainPage = () => {

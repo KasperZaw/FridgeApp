@@ -1,6 +1,6 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { loginUser } from "../../backend/Firebases/auth.services";
+import { loginUser } from "../../backend/Firebase/auth.services";
 import { Link, useNavigate } from "react-router-dom";
 const login = () => {
   const navigate = useNavigate();

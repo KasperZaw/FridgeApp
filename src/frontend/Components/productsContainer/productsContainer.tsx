@@ -6,11 +6,12 @@ import {
 import ProductCard from "../productCard/productCard";
 import { Box, Typography } from "@mui/material";
 import AddCard from "../manualAddCard/addCard";
-import { getProducts } from "../../../backend/Firebases/products.db";
+import { getProducts } from "../../../backend/Firebase/products.db";
 const productsContainer = () => {
   const { setProducts } = useFridgeStore();
   const [open, setOpen] = useState(false);
   const products = useFridgeStore((state: FridgeStorage) => state.product);
+  
   useEffect(() => {
     const load = async () => {
       try {

@@ -1,6 +1,6 @@
 import React from "react";
 import Scanner from "../scaner/scanner";
-import { LogoutUser } from "/Users/kacper/Desktop/fridge-app/keep-fresh/src/backend/Firebases/auth.services.ts";
+import { LogoutUser } from "../../../backend/Firebase/auth.services";
 import { useNavigate } from "react-router-dom";
 const navbar = () => {
   const navigate = useNavigate();
