@@ -12,7 +12,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import NutritionCard from "../nutritionCard/nutritionCard";
 import { Trash2 } from "lucide-react";
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../../backend/Firebase/firebase";
+import { auth, db } from "../../../backend/Firebase/firebase";
 
 type ProductCardProps = {
   thumb_img: string | undefined;
@@ -43,14 +43,16 @@ const productCard = ({
   const removeProduct = useFridgeStore(
     (state: FridgeStorage) => state.removeProdcut,
   );
-  const { updateQuantity } = useFridgeStore();
   const [localDate, setLocalDate] = useState<Dayjs | null>(
     expiryDate ? dayjs(expiryDate) : null,
   );
 
   const handleRemove = async (id: string) => {
     removeProduct(id);
-    await deleteDoc(doc(db, "products", id));
+    const user = auth.currentUser;
+    if (!user) return;
+
+    await deleteDoc(doc(db, "Users", user.uid, "products", id));
   };
 
   useEffect(() => {
@@ -82,7 +84,15 @@ const productCard = ({
               py="xs: 1.5, md: 3"
             >
               <Box display="flex" gap="20px" alignItems="center">
-                <img src={thumb_img} alt="" style={{ height: "70px" }} />
+                <Box
+                  height="70px"
+                  width="70px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <img src={thumb_img} alt="" style={{ height: "70px" }} />
+                </Box>
                 <Box
                   display="flex"
                   flexDirection="column"
@@ -138,7 +148,7 @@ const productCard = ({
                         });
 
                         const diff = newDate?.diff(dayjs(), "day");
-                        updateProduct(String(id), { daysLeft: String(diff) });
+                        updateProduct(String(id), { daysLeft: diff });
                       }}
                       value={
                         expiryDate ? dayjs(expiryDate, "DD.MM.YYYY") : null

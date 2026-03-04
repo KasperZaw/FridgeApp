@@ -11,7 +11,7 @@ const productsContainer = () => {
   const { setProducts } = useFridgeStore();
   const [open, setOpen] = useState(false);
   const products = useFridgeStore((state: FridgeStorage) => state.product);
-  
+
   useEffect(() => {
     const load = async () => {
       try {
@@ -28,9 +28,9 @@ const productsContainer = () => {
     <Box
       sx={{
         bgcolor: "#FDFAFE",
-        minHeight: "700px",
+        minHeight: "400px",
         maxWidth: "850px",
-        marginTop: "50px",
+        maxHeight: "640px",
         borderRadius: "20px",
         width: "100%",
         margin: "50px auto 0 auto",
@@ -66,7 +66,7 @@ const productsContainer = () => {
             kcal={String(p.kcal)}
             protein={p.protein}
             fat={p.fat}
-            daysLeft={p.daysLeft}
+            daysLeft={p.daysLeft != undefined ? String(p.daysLeft) : "-"}
           />
         ))}
       </Box>

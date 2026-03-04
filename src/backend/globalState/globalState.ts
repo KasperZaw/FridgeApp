@@ -3,8 +3,8 @@ import { devtools } from "zustand/middleware";
 import { savePoroducts } from "../Firebase/products.db";
 
 interface UserData {
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
 }
 
 interface Product {
@@ -18,7 +18,7 @@ interface Product {
   fat?: string;
   expiryDate?: string;
   quantity?: number;
-  daysLeft?: string;
+  daysLeft?: number;
 }
 
 export interface FridgeStorage {

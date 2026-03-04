@@ -40,3 +40,11 @@ export const getProducts = async () => {
   const products = snapshot.docs.map((doc) => doc.data());
   return products;
 };
+
+export const snapShot = async () => {
+  const user = auth.currentUser;
+
+  if (!user) return;
+  const snapshot = await getDocs(collection(db, "Users", user.uid, "products"));
+  return snapshot;
+};

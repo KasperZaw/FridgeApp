@@ -23,16 +23,16 @@ A mobile-friendly web app for tracking food in your fridge. Scan product barcode
 
 ## 🛠 Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| React + TypeScript | Frontend framework |
-| Vite | Build tool |
-| Material UI (MUI) | UI component library |
-| Zustand | Global state management |
-| Firebase Auth | User authentication |
-| Firebase Firestore | Cloud database |
+| Technology          | Purpose                     |
+| ------------------- | --------------------------- |
+| React + TypeScript  | Frontend framework          |
+| Vite                | Build tool                  |
+| Material UI (MUI)   | UI component library        |
+| Zustand             | Global state management     |
+| Firebase Auth       | User authentication         |
+| Firebase Firestore  | Cloud database              |
 | Open Food Facts API | Product data by EAN barcode |
-| React Router | Client-side routing |
+| React Router        | Client-side routing         |
 
 ---
 

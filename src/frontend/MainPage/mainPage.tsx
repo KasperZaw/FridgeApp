@@ -11,6 +11,8 @@ import {
 } from "../../backend/Firebase/user.services";
 import ProductsContainer from "../Components/productsContainer/productsContainer";
 import Navbar from "../Components/navbar/navbar";
+import FreshCard from "../Components/FreshnessCard/FreshCard";
+import FreshCardContainer from "../Components/FreshCardsContainer/FreshCardContainer";
 const mainPage = () => {
   const [food, setFood] = useState<any>(null);
   const [data, setData] = useState<UserProfile | null>(null);
@@ -39,7 +41,6 @@ const mainPage = () => {
     });
   }, []);
 
-
   if (!data) {
     return <div>leading...</div>;
   }
@@ -47,6 +48,7 @@ const mainPage = () => {
     <>
       <Navbar />
       <main>
+        <FreshCardContainer />
         <ProductsContainer />
       </main>
     </>

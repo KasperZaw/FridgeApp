@@ -7,6 +7,20 @@ const navbar = () => {
   return (
     <nav>
       <button
+        style={{
+          background: "linear-gradient(90deg, #3b82f6, #a855f7)",
+          height: "50px",
+          width: "80px",
+          border: "none",
+          borderRadius: "15px",
+          fontSize: "medium",
+          padding: "10px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "10px",
+          color: "white",
+        }}
         onClick={() => {
           LogoutUser();
           navigate("/login");
@@ -14,7 +28,6 @@ const navbar = () => {
       >
         logout
       </button>
-      <img src="./src/assets/Logo.png" alt="Logo" />
       <Scanner />
     </nav>
   );
