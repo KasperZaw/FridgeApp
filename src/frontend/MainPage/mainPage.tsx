@@ -16,6 +16,7 @@ const mainPage = () => {
       const info = await getUserInfo();
       setData(info);
     });
+    return () => unsubscribe();
   }, []);
 
   if (!data) {
