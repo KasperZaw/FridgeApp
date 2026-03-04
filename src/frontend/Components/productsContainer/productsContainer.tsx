@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import {
   useFridgeStore,
   type FridgeStorage,
-} from "/Users/kacper/Desktop/fridge-app/keep-fresh/src/backend/globalState/globalState.ts";
+  type Product,
+} from "../../..//backend/globalState/globalState.ts";
 import ProductCard from "../productCard/productCard";
 import { Box, Typography } from "@mui/material";
 import AddCard from "../manualAddCard/addCard";
@@ -54,7 +55,7 @@ const productsContainer = () => {
         <AddCard open={open} onClose={() => setOpen(false)} />
       </Box>
       <Box overflow="auto" height="640px" flex="1">
-        {products.map((p) => (
+        {products.map((p: Product) => (
           <ProductCard
             key={p.id}
             quantity={p.quantity}

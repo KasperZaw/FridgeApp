@@ -7,7 +7,7 @@ interface UserData {
   email?: string;
 }
 
-interface Product {
+export interface Product {
   name?: string;
   img?: string;
   id?: string;
