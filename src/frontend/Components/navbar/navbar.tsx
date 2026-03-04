@@ -1,4 +1,3 @@
-import React from "react";
 import Scanner from "../scaner/scanner";
 import { LogoutUser } from "../../../backend/Firebase/auth.services";
 import { useNavigate } from "react-router-dom";

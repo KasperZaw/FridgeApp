@@ -2,8 +2,7 @@ import { Box, TextField, Typography } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs, { Dayjs } from "dayjs";
-import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
 import {
   useFridgeStore,
   type FridgeStorage,
@@ -43,9 +42,6 @@ const productCard = ({
   const removeProduct = useFridgeStore(
     (state: FridgeStorage) => state.removeProdcut,
   );
-  const [localDate, setLocalDate] = useState<Dayjs | null>(
-    expiryDate ? dayjs(expiryDate) : null,
-  );
 
   const handleRemove = async (id: string) => {
     removeProduct(id);
@@ -54,10 +50,6 @@ const productCard = ({
 
     await deleteDoc(doc(db, "Users", user.uid, "products", id));
   };
-
-  useEffect(() => {
-    setLocalDate(expiryDate ? dayjs(expiryDate) : null);
-  }, [expiryDate]);
 
   return (
     <>
@@ -142,7 +134,6 @@ const productCard = ({
                     />
                     <DatePicker
                       onChange={(newDate) => {
-                        setLocalDate(newDate);
                         updateProduct(String(id), {
                           expiryDate: newDate?.format("DD.MM.YYYY"),
                         });

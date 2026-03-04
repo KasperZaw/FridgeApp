@@ -1,10 +1,4 @@
-import {
-  collection,
-  setDoc,
-  doc,
-  getDocs,
-  deleteDoc,
-} from "firebase/firestore";
+import { collection, setDoc, doc, getDocs } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import { useFridgeStore } from "../globalState/globalState";
 
@@ -39,12 +33,4 @@ export const getProducts = async () => {
   const snapshot = await getDocs(collection(db, "Users", user.uid, "products"));
   const products = snapshot.docs.map((doc) => doc.data());
   return products;
-};
-
-export const snapShot = async () => {
-  const user = auth.currentUser;
-
-  if (!user) return;
-  const snapshot = await getDocs(collection(db, "Users", user.uid, "products"));
-  return snapshot;
 };

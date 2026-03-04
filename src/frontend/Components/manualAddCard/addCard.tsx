@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Dialog,
   DialogContent,
-  DialogTitle,
   IconButton,
   TextField,
   Typography,
 } from "@mui/material";
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { X } from "lucide-react";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs, { Dayjs } from "dayjs";
+
 import {
   useFridgeStore,
   type FridgeStorage,
@@ -142,7 +139,6 @@ const addCard = ({ open, onClose }: AddProductModalProps) => {
                     onClick={() => setImgUrl(src)}
                   />
                 ))}
-                <img src="" alt="" />
               </Box>
             </Box>
           </Box>

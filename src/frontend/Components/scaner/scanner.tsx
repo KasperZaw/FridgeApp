@@ -9,7 +9,6 @@ import { useRef, useState } from "react";
 
 const scanner = () => {
   const [scanning, setScanning] = useState(false);
-  const [ean, setEan] = useState("");
   const html5QrcodeRef = useRef<Html5Qrcode | null>(null);
   const addProduct = useFridgeStore((state: FridgeStorage) => state.addProduct);
 
@@ -49,8 +48,6 @@ const scanner = () => {
     await html5QrcodeRef.current.start(
       { facingMode: "environment" }, // tylna kamera
       { fps: 10, qrbox: { width: 250, height: 250 } },
-      // (decodedText: string) => console.log(decodedText) ,
-      //(decodedText: string) => setEan(decodedText) ,
       (decodedText: string) => onScanSuccess(decodedText),
       (error: string) => console.warn(error),
     );
@@ -60,12 +57,13 @@ const scanner = () => {
   const stopScan = async () => {
     await html5QrcodeRef.current
       ?.stop()
-      .then((ignore) => {})
+      .then((ignore) => {
+        console.log(ignore);
+      })
       .catch((error) => {
         console.error(error);
       });
     setScanning(false);
-    console.log("zamykanie dziala");
   };
 
   return (
@@ -80,7 +78,6 @@ const scanner = () => {
           <button onClick={stopScan}>stop skanowania</button>
         )}
       </div>
-      <span>{ean}</span>
     </div>
   );
 };
