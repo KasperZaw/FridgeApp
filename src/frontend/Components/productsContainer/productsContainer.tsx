@@ -30,7 +30,7 @@ const productsContainer = () => {
         bgcolor: "#FDFAFE",
         minHeight: "400px",
         maxWidth: "850px",
-        maxHeight: "640px",
+        maxHeight: "500px",
         borderRadius: "20px",
         width: "100%",
         margin: "50px auto 0 auto",

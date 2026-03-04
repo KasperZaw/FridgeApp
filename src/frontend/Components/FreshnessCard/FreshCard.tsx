@@ -22,7 +22,10 @@ const FreshCard = ({
       width="100%"
       sx={{
         background: background,
-        padding: "20px",
+        padding: "10px",
+        "@media (min-width: 768px)": {
+          padding: "20px",
+        },
       }}
     >
       <Typography sx={{ fontSize: "16px" }}>{title}</Typography>

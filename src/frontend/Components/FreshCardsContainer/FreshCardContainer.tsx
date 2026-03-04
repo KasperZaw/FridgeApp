@@ -18,7 +18,7 @@ const FreshCardContainer = () => {
   return (
     <Box
       display="flex"
-      gap="30px"
+      gap={{ xs: "10px", md: "30px" }}
       width="100%"
       maxWidth="850px"
       height="150px"
@@ -39,7 +39,7 @@ const FreshCardContainer = () => {
         fontColor={"#ef4444"}
       />
       <FreshCard
-        title={"Status Świezości"}
+        title={"Status"}
         count={expiredProduct <= "3" ? "Super" : "Średnio"}
         status={
           expiredProduct <= "3"

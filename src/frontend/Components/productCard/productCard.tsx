@@ -72,8 +72,8 @@ const productCard = ({
               width="100%"
               bgcolor="white"
               borderRadius="20px"
-              padding="24px 32px"
               py="xs: 1.5, md: 3"
+              padding={{ xs: "12px", md: "24px 32px" }}
             >
               <Box display="flex" gap="20px" alignItems="center">
                 <Box
