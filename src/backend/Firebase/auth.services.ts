@@ -34,6 +34,7 @@ export async function registerUser(data: RegisterData) {
     }
   } catch (error) {
     console.error(`firebase error: ${error}`);
+    throw error;
   }
 }
 
