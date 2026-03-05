@@ -6,7 +6,7 @@ A mobile-friendly web app for tracking food in your fridge. Scan product barcode
 
 ## 🚀 Live Demo
 
-> Wstawic potem
+https://keep-fresh-project.vercel.app/login
 
 ---
 
@@ -106,7 +106,8 @@ service cloud.firestore {
 
 ## 📸 Screenshots
 
-> Dodac screnn jak poprawie css
+![alt text](app-screenshot.png)
+
 
 ---
 
