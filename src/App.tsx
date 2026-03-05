@@ -7,10 +7,10 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <>
-    <Toaster />
+      <Toaster />
       <BrowserRouter>
         <Routes>
-         <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/main" element={<MainPage />} />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 import { registerUser } from "../../backend/Firebase/auth.services";
 import { Link } from "react-router-dom";
-import {toast} from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     try {
       await registerUser({
         email,
@@ -19,7 +19,7 @@ const Register = () => {
         firstName: name,
         lastName: lname,
       });
-  
+
       toast.success("Konto utworzone");
     } catch (error) {
       toast.error("Nie udało się utworzyć konta");

@@ -2,14 +2,17 @@ import { Box } from "@mui/material";
 import FreshCard from "../FreshnessCard/FreshCard";
 import { useEffect, useState } from "react";
 import { useFridgeStore } from "../../../backend/globalState/globalState";
+import dayjs from "dayjs";
 const FreshCardContainer = () => {
   const [productCount, setProductCount] = useState<number>();
   const [expiredProduct, setExpiredProduct] = useState("");
   const product = useFridgeStore((state) => state.product);
 
   useEffect(() => {
-    const expired = product.filter(
-      (p) => p.daysLeft != null && p.daysLeft <= 1,
+    const expired = product.filter((p) =>
+      p.expiryDate
+        ? dayjs(p.expiryDate, "DD.MM.YYYY").diff(dayjs(), "day") <= 1
+        : false,
     ).length;
     setExpiredProduct(String(expired));
     setProductCount(product.length);

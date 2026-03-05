@@ -67,7 +67,6 @@ const productsContainer = () => {
             kcal={String(p.kcal)}
             protein={p.protein}
             fat={p.fat}
-            daysLeft={p.daysLeft != undefined ? String(p.daysLeft) : "-"}
           />
         ))}
       </Box>

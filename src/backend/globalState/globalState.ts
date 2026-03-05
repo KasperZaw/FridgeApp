@@ -18,7 +18,6 @@ export interface Product {
   fat?: string;
   expiryDate?: string;
   quantity?: number;
-  daysLeft?: number;
 }
 
 export interface FridgeStorage {

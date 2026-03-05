@@ -23,7 +23,6 @@ type ProductCardProps = {
   fat: string | undefined;
   expiryDate: string | undefined;
   quantity: number | undefined;
-  daysLeft: string | undefined;
 };
 
 const productCard = ({
@@ -36,12 +35,14 @@ const productCard = ({
   fat,
   expiryDate,
   quantity,
-  daysLeft,
 }: ProductCardProps) => {
   const { updateProduct } = useFridgeStore();
   const removeProduct = useFridgeStore(
     (state: FridgeStorage) => state.removeProdcut,
   );
+  const computedDaysLeft = expiryDate
+    ? dayjs(expiryDate, "DD.MM.YYYY").diff(dayjs(), "day")
+    : null;
 
   const handleRemove = async (id: string) => {
     removeProduct(id);
@@ -137,9 +138,6 @@ const productCard = ({
                         updateProduct(String(id), {
                           expiryDate: newDate?.format("DD.MM.YYYY"),
                         });
-
-                        const diff = newDate?.diff(dayjs(), "day");
-                        updateProduct(String(id), { daysLeft: diff });
                       }}
                       value={
                         expiryDate ? dayjs(expiryDate, "DD.MM.YYYY") : null
@@ -177,7 +175,7 @@ const productCard = ({
                   }}
                 >
                   <Typography fontSize="14px" color="white">
-                    {daysLeft}
+                    {computedDaysLeft ?? "-"}
                   </Typography>
                 </Box>
                 <Box
